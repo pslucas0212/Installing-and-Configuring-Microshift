@@ -92,3 +92,10 @@ $ sudo vgcreate vmdisk /dev/sdb
 
 ## Installing MicroShift from and RPM Package
 
+```
+$ sudo dnf -y install microshift openshift-clients
+```
+
+Copy pull-secret to the /etc/crio folder on our RHEL VM and set permissions
+
+
