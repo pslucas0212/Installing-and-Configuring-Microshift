@@ -1,7 +1,7 @@
 # Installing and Configuring Microshift
 
-### Setup
-For this lab I created a Red Hat Enterprise Linux 9.2 VM with 2 vCPUs, 4 Gib of RAM, 100GB drive and a second 20GB drive.  
+## Setup
+For this lab I created a Red Hat Enterprise Linux 9.2 VM with 2 vCPUs, 8 Gib of RAM, 40GB drive and a second 20GB drive.  
 
 Register they system.
 ```
@@ -89,3 +89,6 @@ $ sudo pvcreate /dev/sdb
 $ sudo vgcreate vmdisk /dev/sdb
   Volume group "vmdisk" successfully created
 ```
+
+## Installing MicroShift from and RPM Package
+
