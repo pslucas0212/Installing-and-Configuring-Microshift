@@ -50,27 +50,26 @@ Enabled:   1
 Check the drives available to our VM
 ```
 $ sudo fdisk -l
-Disk /dev/sda: 100 GiB, 107374182400 bytes, 209715200 sectors
-Disk model: Virtual disk    
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: gpt
-Disk identifier: 037CB9A2-4FB7-428C-AFBD-4F0BE6CFB8DF
-
-Device       Start       End   Sectors  Size Type
-/dev/sda1     2048   1230847   1228800  600M EFI System
-/dev/sda2  1230848   3327999   2097152    1G Linux filesystem
-/dev/sda3  3328000 209713151 206385152 98.4G Linux LVM
-
-
 Disk /dev/sdb: 20 GiB, 21474836480 bytes, 41943040 sectors
 Disk model: Virtual disk    
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/sda: 60 GiB, 64424509440 bytes, 125829120 sectors
+Disk model: Virtual disk    
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disklabel type: gpt
-Disk identifier: AC52DABE-3CE6-4D40-86A2-405037ABBDF8
+Disk identifier: CAC3561B-534A-4B69-99E3-82B271DB61C1
+
+Device       Start       End   Sectors  Size Type
+/dev/sda1     2048   1230847   1228800  600M EFI System
+/dev/sda2  1230848   3327999   2097152    1G Linux filesystem
+/dev/sda3  3328000 125827071 122499072 58.4G Linux LVM
+...
 ```
 
 We will set up this disk: Disk /dev/sdb: 20 GiB as the LVM storage for MicroShift.  Let's install required packages for LVM:
@@ -86,4 +85,7 @@ Complete!
 Create a physical volume and volume group named **vmdisk** on the extr drive (**/dev/sdb** in our example).  
 ```
 $ sudo pvcreate /dev/sdb
+  Physical volume "/dev/sdb" successfully created.
+$ sudo vgcreate vmdisk /dev/sdb
+  Volume group "vmdisk" successfully created
 ```
