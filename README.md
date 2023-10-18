@@ -46,6 +46,11 @@ Repo Name: Red Hat OpenShift Container Platform 4.13 for RHEL 9 x86_64 (RPMs)
 Repo URL:  https://cdn.redhat.com/content/dist/layered/rhel9/x86_64/rhocp/4.13/os
 Enabled:   1
 ```
+Update system to latest code  
+```
+$ sudo dnf update -y  && sudo dnf upgrade -y
+```
+## Note: ## Seperate disk for PVC is a work in progres and can be skipped - Skip to  Installing MicroShift from and RPM Package section
 
 Check the drives available to our VM
 ```
